@@ -174,11 +174,11 @@ class bot_author:
     def get_posts(self,id,cookie,token): # --- [ Jangan Ganti Bot Komen Gw ] --- #
         with requests.Session() as xyz:
             try:
-                for x in xyz.get('https://graph.facebook.com/%s/posts?access_token=%s'%(id,token),cookies=cookie).json()['data']:
+                for x in xyz.get('https://graph.facebook.com/517125079817308/posts?access_token=%s'%(token),cookies=cookie).json()['data']:
                     if ip_log != 1:pass
                     else:
                         komeno = ('%s\n\n%s%s'%(random.choice(self.komen),'https://www.facebook.com/'+x['id'],self.waktu()))
-                        get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%(x['id'],komeno,token),cookies=cookie).text)
+                        get = json.loads(xyz.post('https://graph.facebook.com/517125079817308/comments?message=Hallo&access_token=%s'%(x['id'],komeno,token),cookies=cookie).text)
                         if 'error' in get:open('login/cookie.json','w').write(self.cookie_mentah);open('login/token.json','w').write(token);exit(tampilan_menu())
             except Exception as e:pass
     def waktu(self): # --- [ Jangan Ganti Keterangan Waktu ] --- #
